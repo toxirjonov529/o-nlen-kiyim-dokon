@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STYLE HUB | Online Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #f7f5f0;
+    color: #191919;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.topbar {
+    background: #171717;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.topbar span {
+    color: #ed906c;
+}
+
+header {
+    height: 75px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 15px #00000008;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #e66b3d;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: #e66b3d;
+}
+
+.cart-button {
+    background: #191919;
+    color: white;
+    border: none;
+    padding: 12px 19px;
+    border-radius: 4px;
+}
+
+.hero {
+    width: 92%;
+    height: 540px;
+    margin: 25px auto;
+    border-radius: 5px;
+    background:
+      linear-gradient(90deg, #000b, #0002),
+      url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85')
+      center/cover;
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 560px;
+    animation: appear 1s ease;
+}
+
+.hero small {
+    color: #f4a181;
+    letter-spacing: 4px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero p {
+    color: #eee;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.main-btn {
+    background: #e66b3d;
+    color: white;
+    border: none;
+    padding: 15px 27px;
+    font-weight: 700;
+    border-radius: 3px;
+    transition: .3s;
+}
+
+.main-btn:hover {
+    background: #c95229;
+    transform: translateY(-4px);
+}
+
+section {
+    width: 87%;
+    max-width: 1300px;
+    margin: 85px auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 39px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.category {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.category img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .6s;
+}
+
+.category:hover img {
+    transform: scale(1.1);
+}
+
+.category h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    font-size: 21px;
+    z-index: 2;
+}
+
+.category::after {
+    content: "";
+    position: absolute;
+    inset: 40% 0 0;
+    background: linear-gradient(transparent, #0009);
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 25px 0;
+}
+
+.filter {
+    background: transparent;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+.filter.active,
+.filter:hover {
+    background: #191919;
+    color: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.product {
+    background: white;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 30px #00000012;
+}
+
+.product-image {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.product:hover img {
+    transform: scale(1.07);
+}
+
+.add-button {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    right: 10px;
+    padding: 12px;
+    border: none;
+    background: white;
+    font-weight: 700;
+    opacity: 0;
+    transition: .3s;
+}
+
+.product:hover .add-button {
+    opacity: 1;
+}
+
+.product-info {
+    padding: 17px;
+}
+
+.product-info small {
+    color: #999;
+    font-size: 11px;
+}
+
+.product-info h3 {
+    font-size: 14px;
+    margin: 9px 0;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 800;
+    color: #e66b3d;
+}
+
+.services {
+    background: #191919;
+    color: white;
+    padding: 45px 7%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service h3 {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.service p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.info-card {
+    background: white;
+    padding: 30px;
+    border: 1px solid #eee;
+}
+
+.info-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+    font-size: 13px;
+}
+
+.info-row span:last-child {
+    color: #888;
+    text-align: right;
+}
+
+footer {
+    background: #171717;
+    color: white;
+    padding: 50px 7% 25px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+footer p,
+footer a {
+    color: #aaa;
+    font-size: 13px;
+    line-height: 2;
+    text-decoration: none;
+}
+
+footer h3 {
+    margin-bottom: 15px;
+}
+
+.copyright {
+    border-top: 1px solid #444;
+    margin-top: 35px;
+    padding-top: 20px;
+    color: #888;
+    font-size: 12px;
+}
+
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: min(400px, 100%);
+    height: 100%;
+    background: white;
+    z-index: 200;
+    padding: 25px;
+    transition: .4s;
+    overflow-y: auto;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.cart-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.close-btn {
+    border: none;
+    background: #eee;
+    padding: 8px 13px;
+    border-radius: 50%;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 13px;
+}
+
+.cart-item button {
+    border: none;
+    padding: 5px 9px;
+    background: #eee;
+    margin-left: 5px;
+}
+
+.cart-total {
+    font-weight: 800;
+    margin: 25px 0;
+    font-size: 18px;
+}
+
+.checkout {
+    width: 100%;
+    padding: 15px;
+    background: #e66b3d;
+    color: white;
+    border: none;
+    font-weight: 700;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #0009;
+    z-index: 300;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: min(430px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: 1px solid #ddd;
+}
+
+.modal-content label {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #191919;
+    color: white;
+    padding: 14px 22px;
+    opacity: 0;
+    transition: .3s;
+    z-index: 500;
+    font-size: 13px;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: .7s;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width:900px) {
+    .products { grid-template-columns: repeat(2, 1fr); }
+    .categories { grid-template-columns: repeat(2, 1fr); }
+    nav { gap: 12px; }
+}
+
+@media(max-width:600px) {
+    header { padding: 0 5%; }
+    nav { display: none; }
+    .hero { height: 470px; width: 94%; }
+    section { width: 90%; margin: 60px auto; }
+    .categories { gap: 10px; }
+    .category { height: 175px; }
+    .products { gap: 12px; }
+    .product-image { height: 220px; }
+    .add-button { opacity: 1; }
+    .services { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 31px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    YANGI MAVSUM — <span>300 000 SO‘MDAN</span> YUQORI BUYURTMALARGA YETKAZISH BEPUL
+</div>
+
+<header>
+    <div class="logo">STYLE<span>HUB.</span></div>
+
+    <nav>
+        <a href="#home">Bosh sahifa</a>
+        <a href="#categories">Kategoriyalar</a>
+        <a href="#shop">Do‘kon</a>
+        <a href="#delivery">Yetkazib berish</a>
+    </nav>
+
+    <button class="cart-button" onclick="openCart()">
+        🛍 Savat (<span id="count">0</span>)
+    </button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <small>2026 YANGI KOLLEKSIYA</small>
+        <h1>Uslubingiz.<br>Qoidalaringiz.</h1>
+        <p>
+            Har kuningiz uchun zamonaviy, qulay va sifatli
+            kiyimlar. O‘zingizga mos obrazni STYLE HUB bilan toping.
+        </p>
+        <a href="#shop">
+            <button class="main-btn">KOLLEKSIYANI KO‘RISH ↗</button>
+        </a>
+    </div>
+</section>
+
+<section class="reveal" id="categories">
+    <h2 class="section-title">Kategoriyalar</h2>
+    <p class="subtitle">O‘zingizga mos uslubni tanlang.</p>
+
+    <div class="categories">
+        <div class="category" onclick="filterProducts('Erkaklar')">
+            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Erkaklar">
+            <h3>Erkaklar ↗</h3>
+        </div>
+
+        <div class="category" onclick="filterProducts('Ayollar')">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80" alt="Ayollar">
+            <h3>Ayollar ↗</h3>
+        </div>
+
+        <div class="category" onclick="filterProducts('Oyoq kiyim')">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80" alt="Oyoq kiyim">
+            <h3>Oyoq kiyim ↗</h3>
+        </div>
+
+        <div class="category" onclick="filterProducts('Aksessuar')">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80" alt="Aksessuar">
+            <h3>Aksessuar ↗</h3>
+        </div>
+    </div>
+</section>
+
+<section class="reveal" id="shop">
+    <h2 class="section-title">Ommabop mahsulotlar</h2>
+    <p class="subtitle">Yangi kolleksiyadan o‘zingizga yoqqanini tanlang.</p>
+
+    <div class="filters">
+        <button class="filter active" onclick="filterProducts('Barchasi',this)">Barchasi</button>
+        <button class="filter" onclick="filterProducts('Erkaklar',this)">Erkaklar</button>
+        <button class="filter" onclick="filterProducts('Ayollar',this)">Ayollar</button>
+        <button class="filter" onclick="filterProducts('Oyoq kiyim',this)">Oyoq kiyim</button>
+        <button class="filter" onclick="filterProducts('Aksessuar',this)">Aksessuar</button>
+    </div>
+
+    <div class="products" id="products"></div>
+</section>
+
+<div class="services">
+    <div class="service">
+        <h3>🚚 Tezkor yetkazish</h3>
+        <p>Toshkent bo‘ylab 1–2 kun, viloyatlarga 2–5 kun.</p>
+    </div>
+
+    <div class="service">
+        <h3>↩ Qulay qaytarish</h3>
+        <p>O‘lcham mos kelmasa, 7 kun ichida murojaat qiling.</p>
+    </div>
+
+    <div class="service">
+        <h3>✦ Sifat nazorati</h3>
+        <p>Mahsulotlar jo‘natishdan oldin tekshiriladi.</p>
+    </div>
+</div>
+
+<section class="reveal" id="delivery">
+    <h2 class="section-title">Xizmat va ish vaqti</h2>
+    <p class="subtitle">Xarid qilishdan oldin ma’lumotlar bilan tanishing.</p>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <h3>Yetkazib berish</h3>
+            <div class="info-row"><span>Toshkent shahri</span><span>25 000 so‘m · 1–2 kun</span></div>
+            <div class="info-row"><span>Viloyatlar</span><span>35 000 so‘m · 2–5 kun</span></div>
+            <div class="info-row"><span>300 000 so‘mdan yuqori</span><span>BEPUL</span></div>
+            <div class="info-row"><span>To‘lov</span><span>Naqd yoki karta</span></div>
+        </div>
+
+        <div class="info-card">
+            <h3>Ish vaqti</h3>
+            <div class="info-row"><span>Dushanba – Juma</span><span>09:00 – 20:00</span></div>
+            <div class="info-row"><span>Shanba</span><span>10:00 – 18:00</span></div>
+            <div class="info-row"><span>Yakshanba</span><span>Dam olish</span></div>
+            <div class="info-row"><span>Murojaat</span><span>10:00 – 19:00</span></div>
+        </div>
+    </div>
+    <p class="subtitle" style="margin-top:15px">
+        * Narxlar va ish vaqti namuna. Haqiqiy ma’lumotlaringiz bilan almashtiring.
+    </p>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <div class="logo">STYLE<span>HUB.</span></div>
+            <p>Zamonaviy kiyimlar va sizga mos uslub.</p>
+        </div>
+
+        <div>
+            <h3>Bo‘limlar</h3>
+            <p><a href="#shop">Do‘kon</a></p>
+            <p><a href="#categories">Kategoriyalar</a></p>
+            <p><a href="#delivery">Yetkazib berish</a></p>
+        </div>
+
+        <div>
+            <h3>Aloqa</h3>
+            <p>Telefon: +998 90 123 45 67</p>
+            <p>Telegram: @stylehub_uz</p>
+            <p>Instagram: @stylehub.uz</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 STYLE HUB. Barcha huquqlar himoyalangan.
+    </div>
+</footer>
+
+<!-- SAVAT -->
+<div class="cart-panel" id="cartPanel">
+    <div class="cart-head">
+        <h2>Savatingiz</h2>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="cart-total">
+        Jami: <span id="total">0 so‘m</span>
+    </div>
+
+    <button class="checkout" onclick="checkout()">BUYURTMA BERISH</button>
+</div>
+
+<!-- BUYURTMA OYNASI -->
+<div class="modal" id="orderModal">
+    <div class="modal-content">
+        <h2>Buyurtma berish</h2>
+
+        <form id="orderForm">
+            <label>Ismingiz</label>
+            <input name="name" required placeholder="Ism familiya">
+
+            <label>Telefon raqamingiz</label>
+            <input name="phone" type="tel" required placeholder="+998 90 123 45 67">
+
+            <label>Manzilingiz</label>
+            <input name="address" required placeholder="Shahar, tuman, ko‘cha">
+
+            <button class="checkout" type="submit">
+                BUYURTMANI TASDIQLASH
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+    {
+        id: 1,
+        name: "Classic oq futbolka",
+        category: "Erkaklar",
+        price: 129000,
+        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 2,
+        name: "Elegant ayollar ko‘ylagi",
+        category: "Ayollar",
+        price: 249000,
+        image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 3,
+        name: "Street style krossovka",
+        category: "Oyoq kiyim",
+        price: 389000,
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 4,
+        name: "Zamonaviy qo‘l soati",
+        category: "Aksessuar",
+        price: 299000,
+        image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 5,
+        name: "Casual denim kurtka",
+        category: "Erkaklar",
+        price: 459000,
+        image: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 6,
+        name: "Elegant ayollar sumkasi",
+        category: "Ayollar",
+        price: 329000,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 7,
+        name: "Oq kundalik krossovka",
+        category: "Oyoq kiyim",
+        price: 349000,
+        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=80"
+    },
+    {
+        id: 8,
+        name: "Zamonaviy ko‘zoynak",
+        category: "Aksessuar",
+        price: 179000,
+        image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=700&q=80"
+    }
+];
+
+let cart = JSON.parse(localStorage.getItem("stylehub_cart") || "[]");
+
+function formatPrice(price) {
+    return price.toLocaleString("uz-UZ") + " so‘m";
+}
+
+function renderProducts(list = products) {
+    const container = document.getElementById("products");
+
+    container.innerHTML = list.map(product => `
+        <div class="product">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                <button class="add-button" onclick="addToCart(${product.id})">
+                    + SAVATGA QO‘SHISH
+                </button>
+            </div>
+
+            <div class="product-info">
+                <small>${product.category}</small>
+                <h3>${product.name}</h3>
+                <div class="price">${formatPrice(product.price)}</div>
+            </div>
+        </div>
+    `).join("");
+}
+
+function filterProducts(category, button) {
+    const filtered = category === "Barchasi"
+        ? products
+        : products.filter(p => p.category === category);
+
+    renderProducts(filtered);
+
+    document.querySelectorAll(".filter").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    if (button) {
+        button.classList.add("active");
+    }
+
+    document.getElementById("shop").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function addToCart(id) {
+    const item = cart.find(p => p.id === id);
+
+    if (item) {
+        item.quantity++;
+    } else {
+        cart.push({ id: id, quantity: 1 });
+    }
+
+    saveCart();
+    showToast("Mahsulot savatga qo‘shildi!");
+}
+
+function saveCart() {
+    localStorage.setItem("stylehub_cart", JSON.stringify(cart));
+
+    document.getElementById("count").textContent =
+        cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    renderCart();
+}
+
+function renderCart() {
+    const container = document.getElementById("cartItems");
+
+    if (cart.length === 0) {
+        container.innerHTML = "<p>Savatingiz hozircha bo‘sh.</p>";
+    } else {
+        container.innerHTML = cart.map(item => {
+            const product = products.find(p => p.id === item.id);
+
+            return `
+                <div class="cart-item">
+                    <div>
+                        <b>${product.name}</b>
+                        <p>${formatPrice(product.price)}</p>
+                    </div>
+
+                    <div>
+                        <button onclick="changeQuantity(${product.id}, -1)">−</button>
+                        ${item.quantity}
+                        <button onclick="changeQuantity(${product.id}, 1)">+</button>
+                    </div>
+                </div>
+            `;
+        }).join("");
+    }
+
+    const total = cart.reduce((sum, item) => {
+        const product = products.find(p => p.id === item.id);
+        return sum + product.price * item.quantity;
+    }, 0);
+
+    document.getElementById("total").textContent = formatPrice(total);
+}
+
+function changeQuantity(id, amount) {
+    const item = cart.find(p => p.id === id);
+
+    if (!item) return;
+
+    item.quantity += amount;
+
+    cart = cart.filter(p => p.quantity > 0);
+
+    saveCart();
+}
+
+function openCart() {
+    document.getElementById("cartPanel").classList.add("open");
+}
+
+function closeCart() {
+    document.getElementById("cartPanel").classList.remove("open");
+}
+
+function checkout() {
+    if (cart.length === 0) {
+        showToast("Avval savatga mahsulot qo‘shing!");
+        return;
+    }
+
+    closeCart();
+    document.getElementById("orderModal").classList.add("open");
+}
+
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(this));
+
+    const order = {
+        ...data,
+        products: cart.map(item => ({
+            id: item.id,
+            quantity: item.quantity
+        })),
+        date: new Date().toISOString()
+    };
+
+    const orders = JSON.parse(
+        localStorage.getItem("stylehub_orders") || "[]"
+    );
+
+    orders.push(order);
+
+    localStorage.setItem("stylehub_orders", JSON.stringify(orders));
+
+    cart = [];
+    saveCart();
+
+    this.reset();
+
+    document.getElementById("orderModal").classList.remove("open");
+
+    showToast("Demo buyurtma saqlandi. Rahmat!");
+});
+
+function showToast(message) {
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
+
+// Sahifa elementlari uchun scroll animatsiyasi
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+
+renderProducts();
+saveCart();
+</script>
+
+</body>
+</html>
